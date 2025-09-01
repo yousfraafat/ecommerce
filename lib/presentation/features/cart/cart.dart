@@ -4,6 +4,7 @@ import 'package:ecommerce/presentation/features/cart/widgets/cart_button_section
 import 'package:flutter/material.dart';
 
 import '../../../main.dart';
+import '../auth/profile_screen.dart';
 
 class Cart extends StatefulWidget {
   static const String routeName = 'cart';
@@ -40,9 +41,11 @@ class _CartState extends State<Cart> {
           Container(
             margin: EdgeInsets.only(right: 10),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, ProfileScreen.routeName);
+              },
               icon: ImageIcon(
-                AssetImage('assets/images/settings_icon.png'),
+                AssetImage('assets/images/profile_icon.png'),
                 color: MyApp.mainColor,
                 size: 30,
               ),

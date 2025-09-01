@@ -1,3 +1,6 @@
+import 'package:ecommerce/presentation/features/auth/login_screen.dart';
+import 'package:ecommerce/presentation/features/auth/profile_screen.dart';
+import 'package:ecommerce/presentation/features/auth/register_screen.dart';
 import 'package:ecommerce/presentation/features/cart/cart.dart';
 import 'package:ecommerce/presentation/features/main_layout/main_screen.dart';
 import 'package:ecommerce/presentation/features/product_details_screen/product_details_screen.dart';
@@ -17,12 +20,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: MainScreen.routeName,
+      initialRoute: LoginScreen.routeName,
       routes: {
         MainScreen.routeName: (_) => MainScreen(),
         ProductsScreen.routeName: (_) => ProductsScreen(),
         Cart.routeName: (_) => Cart(),
         ProductDetailsScreen.routeName: (_) => ProductDetailsScreen(),
+        LoginScreen.routeName: (_) => LoginScreen(),
+        RegisterScreen.routeName: (_) => RegisterScreen(),
+        ProfileScreen.routeName: (_) => ProfileScreen()
       },
     );
   }

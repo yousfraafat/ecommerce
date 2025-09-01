@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import '../../../main.dart';
 import '../../core/widgets/buttons/custom_button.dart';
 import '../../core/widgets/product_counter.dart';
+import '../auth/profile_screen.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   static const String routeName = 'Product details';
@@ -50,9 +51,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           Container(
             margin: EdgeInsets.only(right: 10),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, ProfileScreen.routeName);
+              },
               icon: ImageIcon(
-                AssetImage('assets/images/settings_icon.png'),
+                AssetImage('assets/images/profile_icon.png'),
                 color: MyApp.mainColor,
                 size: 30,
               ),

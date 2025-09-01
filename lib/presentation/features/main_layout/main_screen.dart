@@ -1,5 +1,6 @@
 import 'package:ecommerce/main.dart';
 import 'package:ecommerce/presentation/core/widgets/main_header.dart';
+import 'package:ecommerce/presentation/features/auth/profile_screen.dart';
 import 'package:ecommerce/presentation/features/main_layout/categories/categories_tab.dart';
 import 'package:ecommerce/presentation/features/main_layout/favorite/favorite_tab.dart';
 import 'package:ecommerce/presentation/features/main_layout/home/home_tab.dart';
@@ -28,9 +29,11 @@ class _MainScreenState extends State<MainScreen> {
           Container(
             margin: EdgeInsets.only(right: 10),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, ProfileScreen.routeName);
+              },
               icon: ImageIcon(
-                AssetImage('assets/images/settings_icon.png'),
+                AssetImage('assets/images/profile_icon.png'),
                 color: MyApp.mainColor,
                 size: 30,
               ),

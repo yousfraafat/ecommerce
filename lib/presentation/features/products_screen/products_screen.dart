@@ -3,6 +3,7 @@ import 'package:ecommerce/presentation/core/widgets/product_card/product_card.da
 import 'package:flutter/material.dart';
 
 import '../../../main.dart';
+import '../auth/profile_screen.dart';
 
 class ProductsScreen extends StatelessWidget {
   static const String routeName = 'Products Screen';
@@ -24,9 +25,11 @@ class ProductsScreen extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(right: 10),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, ProfileScreen.routeName);
+              },
               icon: ImageIcon(
-                AssetImage('assets/images/settings_icon.png'),
+                AssetImage('assets/images/profile_icon.png'),
                 color: MyApp.mainColor,
                 size: 30,
               ),
