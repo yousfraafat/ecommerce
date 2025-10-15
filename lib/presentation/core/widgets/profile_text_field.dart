@@ -1,8 +1,9 @@
+import 'package:ecommerce/main.dart';
 import 'package:flutter/material.dart';
 
 typedef Validator = String? Function(String?)?;
 
-class MyTextField extends StatefulWidget {
+class ProfileTextField extends StatefulWidget {
   String title;
   String hint;
   TextInputType inputType;
@@ -10,7 +11,7 @@ class MyTextField extends StatefulWidget {
   Validator? validator;
   TextEditingController? controller;
 
-  MyTextField({
+  ProfileTextField({
     super.key,
     required this.hint,
     required this.title,
@@ -21,11 +22,12 @@ class MyTextField extends StatefulWidget {
   });
 
   @override
-  State<MyTextField> createState() => _MyTextFieldState();
+  State<ProfileTextField> createState() => _ProfileTextFieldState();
 }
 
-class _MyTextFieldState extends State<MyTextField> {
+class _ProfileTextFieldState extends State<ProfileTextField> {
   bool isVisible = true;
+  bool isEditable = false;
 
   @override
   void initState() {
@@ -42,11 +44,33 @@ class _MyTextFieldState extends State<MyTextField> {
         Container(
           margin: EdgeInsets.symmetric(vertical: 20),
           child: TextFormField(
+            readOnly: !isEditable,
             validator: widget.validator,
             decoration: InputDecoration(
               errorStyle: TextStyle(fontSize: 20),
+              prefixIcon:
+                  isEditable
+                      ? InkWell(
+                        onTap: () {
+                          setState(() {
+                            isEditable = !isEditable;
+                          });
+                        },
+                        child: Icon(Icons.check),
+                      )
+                      : null,
               suffixIcon:
-                  widget.securedPassword
+                  !isEditable
+                      ? InkWell(
+                        onTap: () {
+                          setState(() {
+                            isEditable = !isEditable;
+                          });
+                        },
+                        borderRadius: BorderRadius.circular(20),
+                        child: Icon(Icons.edit),
+                      )
+                      : widget.securedPassword
                       ? InkWell(
                         onTap: () {
                           setState(() {
@@ -61,11 +85,11 @@ class _MyTextFieldState extends State<MyTextField> {
                       )
                       : null,
               border: OutlineInputBorder(
-                borderSide: BorderSide.none,
+                borderSide: BorderSide(color: MyApp.mainColor),
                 borderRadius: BorderRadius.circular(15),
               ),
-              filled: true,
-              fillColor: Colors.white,
+              // filled: true,
+              // fillColor: Colors.white,
               hintText: widget.hint,
               contentPadding: EdgeInsets.symmetric(
                 vertical: 25,

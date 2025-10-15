@@ -1,10 +1,16 @@
+import 'package:ecommerce/domain/model/category.dart';
 import 'package:ecommerce/presentation/features/main_layout/categories/widgets/category_tab_item.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../main.dart';
 
+typedef OnCategoryTap = void Function(Category);
+
 class CategoryScrollBar extends StatefulWidget {
-  CategoryScrollBar({super.key});
+  List<Category>? categories;
+  OnCategoryTap onCategoryTap;
+
+  CategoryScrollBar(this.categories, {required this.onCategoryTap, super.key});
 
   @override
   State<CategoryScrollBar> createState() => _CategoryScrollBarState();
@@ -12,6 +18,11 @@ class CategoryScrollBar extends StatefulWidget {
 
 class _CategoryScrollBarState extends State<CategoryScrollBar> {
   int selectedIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +55,11 @@ class _CategoryScrollBarState extends State<CategoryScrollBar> {
               onTap: () {
                 setState(() {
                   selectedIndex = index;
+                  widget.onCategoryTap(widget.categories![index]);
                 });
               },
               child: CategoryTabItem(
+                category: widget.categories![index],
                 selectedIndex: selectedIndex,
                 isSelectedCategory: selectedIndex == index,
               ),

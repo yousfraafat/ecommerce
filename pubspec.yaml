@@ -37,11 +37,18 @@ dependencies:
   curved_navigation_bar: ^1.0.6
   carousel_slider: ^5.1.1
   email_validator: ^3.0.0
-
+  flutter_bloc: ^9.1.1
+  dio: ^5.9.0
+  injectable: ^2.5.1
+  get_it:
+  cached_network_image: ^3.4.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  # add the generator to your dev_dependencies
+  injectable_generator:
+  # add build runner if not already added
+  build_runner:
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your

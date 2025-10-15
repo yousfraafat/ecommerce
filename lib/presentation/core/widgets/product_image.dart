@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../main.dart';
 
 class ProductImage extends StatelessWidget {
-  int flex;
+  int? flex;
   double? margin;
   String image;
 
@@ -17,7 +17,7 @@ class ProductImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: flex,
+      flex: flex ?? 0,
       child: Container(
         margin: EdgeInsets.all(margin ?? 0),
         decoration: BoxDecoration(

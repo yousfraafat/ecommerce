@@ -7,7 +7,10 @@ import 'package:ecommerce/presentation/features/product_details_screen/product_d
 import 'package:ecommerce/presentation/features/products_screen/products_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'di.dart';
+
 void main() {
+  configureDependencies();
   runApp(const MyApp());
 }
 

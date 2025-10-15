@@ -16,7 +16,7 @@ class HomeSectionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.all(10),
       height: 350,
       width: double.infinity,
       child: Column(

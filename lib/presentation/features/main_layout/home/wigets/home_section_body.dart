@@ -1,18 +1,11 @@
-import 'package:ecommerce/main.dart';
 import 'package:ecommerce/presentation/features/products_screen/products_screen.dart';
 import 'package:flutter/material.dart';
 
-class HomeSectionBody extends StatelessWidget {
-  String imageUrl;
-  String itemName;
-  int itemsCount;
+class HomeSectionBody<T> extends StatelessWidget {
+  List<T> items;
+  Widget sectionItem;
 
-  HomeSectionBody({
-    required this.imageUrl,
-    required this.itemName,
-    required this.itemsCount,
-    super.key,
-  });
+  HomeSectionBody({required this.sectionItem, required this.items, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,30 +15,17 @@ class HomeSectionBody extends StatelessWidget {
           crossAxisCount: 2,
         ),
         scrollDirection: Axis.horizontal,
-        itemCount: itemsCount,
+        itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
           return InkWell(
             onTap: () {
               Navigator.pushNamed(
                 context,
                 ProductsScreen.routeName,
-                arguments: itemName,
+                arguments: items[index],
               );
             },
-            child: Column(
-              children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage(
-                    'assets/images/home_section_item.png',
-                  ),
-                  radius: 60,
-                ),
-                Text(
-                  itemName,
-                  style: TextStyle(fontSize: 20, color: MyApp.mainColor),
-                ),
-              ],
-            ),
+            child: sectionItem,
           );
         },
       ),
